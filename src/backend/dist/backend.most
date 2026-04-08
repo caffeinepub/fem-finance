@@ -1,0 +1,39 @@
+// Version: 1.0.0
+type ContactId__479742040 = Nat;
+type ContactMessage__261640387 =
+  {
+    createdAt : Timestamp__301639476;
+    id : ContactId__479742040;
+    message : Text;
+    name : Text;
+    phone : Text
+  };
+type LeadId__1073473045 = Nat;
+type Lead__531162083 =
+  {
+    city : Text;
+    createdAt : Timestamp__301639476;
+    id : LeadId__1073473045;
+    name : Text;
+    phone : Text;
+    serviceTag : ?Text
+  };
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type Timestamp__301639476 = Int;
+actor {
+  stable contactMessages :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?ContactMessage__261640387]];
+      var elementIndex : Nat__490723111
+    };
+  stable leads :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Lead__531162083]];
+      var elementIndex : Nat__490723111
+    };
+  stable var nextContactId : Nat;
+  stable var nextLeadId : Nat
+};

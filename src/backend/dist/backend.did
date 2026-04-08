@@ -1,0 +1,39 @@
+type Timestamp = int;
+type LeadInput = 
+ record {
+   city: text;
+   name: text;
+   phone: text;
+   serviceTag: opt text;
+ };
+type LeadId = nat;
+type Lead = 
+ record {
+   city: text;
+   createdAt: Timestamp;
+   id: LeadId;
+   name: text;
+   phone: text;
+   serviceTag: opt text;
+ };
+type ContactMessageInput = 
+ record {
+   message: text;
+   name: text;
+   phone: text;
+ };
+type ContactMessage = 
+ record {
+   createdAt: Timestamp;
+   id: ContactId;
+   message: text;
+   name: text;
+   phone: text;
+ };
+type ContactId = nat;
+service : {
+  getContactMessages: () -> (vec ContactMessage) query;
+  getLeads: () -> (vec Lead) query;
+  submitContactMessage: (input: ContactMessageInput) -> (ContactMessage);
+  submitLead: (input: LeadInput) -> (Lead);
+}

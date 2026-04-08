@@ -1,0 +1,26 @@
+{
+  "overview": "FEM (Future Expense Manager) is a mobile-first financial advisor web app for middle-class Indian families. It offers lead generation, services directory, SIP calculator, educational articles in Hindi and English, and contact options — all in a clean blue-green design with bottom tab navigation.",
+  "features": [
+    "Lead capture form with Name, Phone, City and callback request",
+    "Services directory: Life Insurance, Health Insurance, Mutual Funds, Loan Services",
+    "SIP Calculator with real-time results",
+    "Education articles in Hindi and English",
+    "Contact tab with Call, WhatsApp, and contact form",
+    "Bottom navigation with 5 tabs",
+    "Bilingual (Hindi/English) toggle",
+    "Professional blue and green color scheme"
+  ],
+  "category": "finance",
+  "tags": [
+    "finance",
+    "financial-advisor",
+    "sip-calculator",
+    "insurance",
+    "mutual-funds",
+    "bilingual",
+    "mobile-first",
+    "lead-generation",
+    "india"
+  ],
+  "last_updated": "2026-04-08T10:25:53.042Z"
+}

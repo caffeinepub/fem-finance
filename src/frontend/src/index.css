@@ -1,0 +1,176 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: "Figtree";
+    --font-body: "General Sans";
+    --font-mono: monospace;
+    --radius: 0.625rem;
+
+    /* Blue #0066CC → OKLCH(0.46 0.20 258) */
+    --background: 0.97 0.008 240;
+    --foreground: 0.15 0.012 240;
+    --card: 1.0 0.0 0;
+    --card-foreground: 0.15 0.012 240;
+    --popover: 1.0 0.0 0;
+    --popover-foreground: 0.15 0.012 240;
+
+    /* Primary = Blue #0066CC */
+    --primary: 0.46 0.2 258;
+    --primary-foreground: 0.99 0.0 0;
+
+    --secondary: 0.94 0.012 240;
+    --secondary-foreground: 0.25 0.012 240;
+    --muted: 0.94 0.008 240;
+    --muted-foreground: 0.52 0.01 240;
+
+    /* Accent = Green #00AA33 → OKLCH(0.61 0.19 145) */
+    --accent: 0.61 0.19 145;
+    --accent-foreground: 0.99 0.0 0;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.99 0.0 0;
+
+    --border: 0.9 0.01 240;
+    --input: 0.88 0.01 240;
+    --ring: 0.46 0.2 258;
+
+    --chart-1: 0.46 0.2 258;
+    --chart-2: 0.61 0.19 145;
+    --chart-3: 0.7 0.16 25;
+    --chart-4: 0.75 0.15 85;
+    --chart-5: 0.55 0.18 195;
+
+    --sidebar: 1.0 0.0 0;
+    --sidebar-foreground: 0.15 0.012 240;
+    --sidebar-primary: 0.46 0.2 258;
+    --sidebar-primary-foreground: 0.99 0.0 0;
+    --sidebar-accent: 0.94 0.008 240;
+    --sidebar-accent-foreground: 0.25 0.012 240;
+    --sidebar-border: 0.9 0.01 240;
+    --sidebar-ring: 0.46 0.2 258;
+
+    /* WhatsApp brand green */
+    --whatsapp: oklch(0.72 0.18 152);
+    --whatsapp-dark: oklch(0.55 0.18 152);
+  }
+
+  .dark {
+    --background: 0.14 0.01 240;
+    --foreground: 0.95 0.005 240;
+    --card: 0.18 0.01 240;
+    --card-foreground: 0.95 0.005 240;
+    --popover: 0.21 0.01 240;
+    --popover-foreground: 0.95 0.005 240;
+
+    --primary: 0.72 0.16 258;
+    --primary-foreground: 0.12 0.01 258;
+
+    --secondary: 0.22 0.01 240;
+    --secondary-foreground: 0.85 0.005 240;
+    --muted: 0.22 0.01 240;
+    --muted-foreground: 0.55 0.008 240;
+
+    --accent: 0.7 0.17 145;
+    --accent-foreground: 0.12 0.01 145;
+
+    --destructive: 0.65 0.19 22;
+    --destructive-foreground: 0.14 0.01 240;
+
+    --border: 0.28 0.01 240;
+    --input: 0.28 0.01 240;
+    --ring: 0.72 0.16 258;
+
+    --chart-1: 0.72 0.16 258;
+    --chart-2: 0.7 0.17 145;
+    --chart-3: 0.77 0.19 70;
+    --chart-4: 0.63 0.27 304;
+    --chart-5: 0.65 0.25 16;
+
+    --sidebar: 0.18 0.01 240;
+    --sidebar-foreground: 0.95 0.005 240;
+    --sidebar-primary: 0.72 0.16 258;
+    --sidebar-primary-foreground: 0.12 0.01 258;
+    --sidebar-accent: 0.22 0.01 240;
+    --sidebar-accent-foreground: 0.85 0.005 240;
+    --sidebar-border: 0.28 0.01 240;
+    --sidebar-ring: 0.72 0.16 258;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Figtree";
+  src: url("/assets/fonts/Figtree.woff2") format("woff2");
+  font-display: swap;
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+
+  .card-elevated {
+    @apply rounded-xl bg-card shadow-sm border border-border;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:opacity-90 active:scale-[0.98] touch-target rounded-xl font-semibold transition-smooth;
+  }
+
+  .btn-success {
+    @apply bg-accent text-accent-foreground hover:opacity-90 active:scale-[0.98] touch-target rounded-xl font-semibold transition-smooth;
+  }
+
+  .section-title {
+    @apply font-display font-bold text-foreground;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border border-input bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-smooth touch-target;
+  }
+
+  /* Range slider thumb */
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: oklch(var(--primary));
+    border: 3px solid oklch(var(--card));
+    box-shadow: 0 1px 4px oklch(var(--primary) / 0.4);
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  input[type="range"]::-webkit-slider-thumb:active {
+    transform: scale(1.2);
+    box-shadow: 0 2px 8px oklch(var(--primary) / 0.5);
+  }
+  input[type="range"]::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: oklch(var(--primary));
+    border: 3px solid oklch(var(--card));
+    cursor: pointer;
+  }
+}
